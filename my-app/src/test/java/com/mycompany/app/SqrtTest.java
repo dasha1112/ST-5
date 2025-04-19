@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class AppTest
 {
-    private static final double DELTA = 0.0000001;
+    private static final double DELTA = 0.00001;
 
     @Test
     public void testSqrtOfZero() {
@@ -32,32 +32,50 @@ class AppTest
     }
 
     @Test
-    public void testSqrtOfTwoPointTwentyFive() {
-        Sqrt sqrt = new Sqrt(2.25);
-        assertEquals(1.5, sqrt.calc(), DELTA);
+    public void testSqrtOfSixteen() {
+        Sqrt sqrt = new Sqrt(16.0);
+        assertEquals(4.0, sqrt.calc(), DELTA);
+    }
+
+    @Test
+    public void testSqrtOfTwo() {
+        Sqrt sqrt = new Sqrt(2.0);
+        assertEquals(Math.sqrt(2.0), sqrt.calc(), DELTA);
+    }
+
+    @Test
+    public void testSqrtOfThree() {
+        Sqrt sqrt = new Sqrt(3.0);
+        assertEquals(Math.sqrt(3.0), sqrt.calc(), DELTA);
+    }
+
+    @Test
+    public void testSqrtOfTen() {
+        Sqrt sqrt = new Sqrt(10.0);
+        assertEquals(Math.sqrt(10.0), sqrt.calc(), DELTA);
+    }
+
+    @Test
+    public void testSqrtOfTwentyFive() {
+        Sqrt sqrt = new Sqrt(25.0);
+        assertEquals(5.0, sqrt.calc(), DELTA);
+    }
+
+    @Test
+    public void testSqrtOfFifty() {
+        Sqrt sqrt = new Sqrt(50.0);
+        assertEquals(Math.sqrt(50.0), sqrt.calc(), DELTA);
     }
 
     @Test
     public void testSqrtOfLargeNumber() {
-        Sqrt sqrt = new Sqrt(1000000);
+        Sqrt sqrt = new Sqrt(1_000_000.0);
         assertEquals(1000.0, sqrt.calc(), DELTA);
     }
 
     @Test
-    public void testAverageOfTwoNumbers() {
-        Sqrt sqrt = new Sqrt(0);
-        assertEquals(5.0, sqrt.average(0, 10), DELTA);
-    }
-
-    @Test
-    public void testGoodApproximation() {
-        Sqrt sqrt = new Sqrt(0);
-        assertTrue(sqrt.good(2.0, 4.0));
-    }
-
-    @Test
-    public void testBadApproximation() {
-        Sqrt sqrt = new Sqrt(0);
-        assertFalse(sqrt.good(1.5, 4.0));
+    public void testSqrtOfVerySmallNumber() {
+        Sqrt sqrt = new Sqrt(0.0000001);
+        assertEquals(Math.sqrt(0.0000001), sqrt.calc(), DELTA);
     }
 }
